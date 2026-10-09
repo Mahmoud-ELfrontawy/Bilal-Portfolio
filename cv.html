@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Curriculum vitae of Bilal Mohamed, Animal Production student and boxing trainee.">
+  <title>CV — Bilal Mohamed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { min-height: 100vh; padding: 26px 18px 60px; }
+    .cv-toolbar { max-width: 850px; margin: 0 auto 18px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .cv-toolbar a, .cv-toolbar button { border: 1px solid var(--line); background: var(--surface); padding: 11px 14px; font-size: 10px; letter-spacing: .08em; cursor: pointer; }
+    .cv-toolbar .cv-download { background: var(--red); color: #fff; border-color: var(--red); font-weight: 700; }
+    .cv-sheet { max-width: 850px; min-height: 1100px; margin: 0 auto; background: var(--bg); border: 1px solid var(--line); padding: 62px 68px; }
+    .cv-header { border-bottom: 2px solid var(--red); padding-bottom: 25px; display: flex; justify-content: space-between; gap: 25px; align-items: center; }
+    .cv-name { font: 900 65px/.9 var(--font-display); letter-spacing: -.025em; margin: 0 0 10px; }
+    .cv-role { font-size: 12px; color: var(--red); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 14px; }
+    .cv-contact { display: flex; gap: 8px 18px; flex-wrap: wrap; font-size: 10px; color: var(--muted); }
+    .cv-photo { width: 112px; height: 135px; object-fit: cover; object-position: center 22%; filter: grayscale(1); }
+    .cv-section { margin-top: 27px; }
+    .cv-section h2 { font: 800 18px var(--font-display); text-transform: uppercase; letter-spacing: .08em; border-bottom: 1px solid var(--line); padding-bottom: 7px; margin-bottom: 12px; }
+    .cv-section p, .cv-section li { font-size: 11px; color: var(--muted); line-height: 1.65; }
+    .cv-section p { margin-bottom: 8px; }
+    .cv-section ul { padding-left: 18px; margin: 8px 0 0; }
+    .cv-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .cv-entry-title { color: var(--text) !important; font-weight: 700; margin-bottom: 2px !important; }
+    .cv-subtitle { color: var(--red) !important; font-weight: 600; }
+    .cv-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .cv-tags span { border: 1px solid var(--line); padding: 6px 8px; font-size: 9px; }
+    html[dir="rtl"] .cv-name, html[dir="rtl"] .cv-section h2 { font-family: var(--font-arabic); letter-spacing: 0; }
+    html[dir="rtl"] .cv-name { font-size: 54px; }
+    html[dir="rtl"] .cv-contact { direction: rtl; }
+    html[dir="rtl"] .cv-section ul { padding-left: 0; padding-right: 18px; }
+    @media (max-width: 600px) {
+      body { padding: 15px 10px 35px; }
+      .cv-sheet { min-height: 0; padding: 28px 22px; }
+      .cv-name { font-size: 47px; }
+      .cv-photo { width: 80px; height: 100px; }
+      .cv-header { gap: 12px; }
+      .cv-columns { gap: 15px; }
+      .cv-section p, .cv-section li { font-size: 10px; }
+      .cv-toolbar a, .cv-toolbar button { padding: 10px 9px; font-size: 8px; }
+    }
+    @media print {
+      :root, :root[data-theme="light"] { --bg: #fff; --text: #171615; --muted: #494643; --line: rgba(23,22,21,.2); color-scheme: light; }
+      body { padding: 0; background: white !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .noise, .cv-toolbar { display: none !important; }
+      .cv-sheet { max-width: none; min-height: 0; border: 0; padding: 12mm 14mm; }
+      .cv-section { margin-top: 18px; }
+      .cv-section h2 { font-size: 16px; }
+      .cv-section p, .cv-section li { font-size: 10px; }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cv-toolbar">
+    <a href="index.html" data-en="← BACK TO PORTFOLIO" data-ar="العودة إلى الموقع ←">← BACK TO PORTFOLIO</a>
+    <div>
+      <button id="cv-language" type="button">عربي</button>
+      <button class="cv-download" id="cv-print" type="button" data-en="DOWNLOAD / SAVE AS PDF ↓" data-ar="تنزيل / حفظ PDF ↓">DOWNLOAD / SAVE AS PDF ↓</button>
+    </div>
+  </div>
+  <main class="cv-sheet">
+    <header class="cv-header">
+      <div>
+        <h1 class="cv-name">BILAL MOHAMED</h1>
+        <p class="cv-role" data-en="Animal Production Student · Aspiring Entrepreneur · Boxing Trainee" data-ar="طالب إنتاج حيواني · رائد أعمال طموح · متدرب ملاكمة">Animal Production Student · Aspiring Entrepreneur · Boxing Trainee</p>
+        <div class="cv-contact">
+          <span data-en="Beni Suef, Egypt" data-ar="بني سويف، مصر">Beni Suef, Egypt</span>
+          <a href="tel:+201022168744">+20 102 216 8744</a>
+          <a href="mailto:123123bilalahmed@gmail.com">123123bilalahmed@gmail.com</a>
+          <a href="https://www.facebook.com/profile.php?id=100050286321641">Facebook</a>
+        </div>
+      </div>
+      <img class="cv-photo" src="img/ChatGPT%20Image%20Oct%209,%202026,%2001_57_17%20PM.png" alt="Bilal Mohamed">
+    </header>
+    <section class="cv-section">
+      <h2 data-en="Professional profile" data-ar="الملف الشخصي">Professional profile</h2>
+      <p data-en="Second-year Agriculture student specializing in Animal Production at Beni Suef University. Interested in poultry farming, livestock management, and agricultural entrepreneurship. Developing practical farm experience alongside English and digital skills, while pursuing a long-term ambition in competitive boxing." data-ar="طالب في السنة الثانية بكلية الزراعة، تخصص الإنتاج الحيواني، بجامعة بني سويف. مهتم بتربية الدواجن وإدارة الثروة الحيوانية وريادة الأعمال الزراعية. أطور خبرتي العملية ومهاراتي الرقمية واللغوية، بالتوازي مع طموحي في المنافسة في الملاكمة.">Second-year Agriculture student specializing in Animal Production at Beni Suef University. Interested in poultry farming, livestock management, and agricultural entrepreneurship. Developing practical farm experience alongside English and digital skills, while pursuing a long-term ambition in competitive boxing.</p>
+    </section>
+    <section class="cv-section">
+      <h2 data-en="Education" data-ar="التعليم">Education</h2>
+      <p class="cv-entry-title" data-en="Bachelor's Degree in Agriculture — Animal Production" data-ar="بكالوريوس الزراعة — الإنتاج الحيواني">Bachelor's Degree in Agriculture — Animal Production</p>
+      <p data-en="Beni Suef University · Second-Year Student · Expected graduation: 2028" data-ar="جامعة بني سويف · طالب بالفرقة الثانية · التخرج المتوقع: ٢٠٢٨">Beni Suef University · Second-Year Student · Expected graduation: 2028</p>
+      <div class="cv-tags"><span data-en="Animal Production" data-ar="الإنتاج الحيواني">Animal Production</span><span data-en="Poultry Farming" data-ar="تربية الدواجن">Poultry Farming</span><span data-en="Livestock Management" data-ar="إدارة الثروة الحيوانية">Livestock Management</span><span data-en="Animal Nutrition" data-ar="تغذية الحيوان">Animal Nutrition</span><span data-en="Farm Management" data-ar="إدارة المزرعة">Farm Management</span></div>
+    </section>
+    <div class="cv-columns">
+      <section class="cv-section">
+        <h2 data-en="Entrepreneurial experience" data-ar="الخبرة الريادية">Entrepreneurial experience</h2>
+        <p class="cv-entry-title" data-en="Poultry Farming Project — Founder / Owner" data-ar="مشروع تربية دواجن — المؤسس / المالك">Poultry Farming Project — Founder / Owner</p>
+        <ul>
+          <li data-en="Started a small poultry project with the goal of generating income." data-ar="أسست مشروع دواجن صغيرًا بهدف تحقيق دخل.">Started a small poultry project with the goal of generating income.</li>
+          <li data-en="Developing practical knowledge of poultry care, feeding, housing, hygiene, and flock management." data-ar="أطور خبرتي في رعاية الدواجن والتغذية والإسكان والنظافة وإدارة القطيع.">Developing practical knowledge of poultry care, feeding, housing, hygiene, and flock management.</li>
+          <li data-en="Learning to track costs and improve productivity." data-ar="أتعلم متابعة التكاليف وتحسين الإنتاجية.">Learning to track costs and improve productivity.</li>
+        </ul>
+      </section>
+      <section class="cv-section">
+        <h2 data-en="Athletic activities" data-ar="الأنشطة الرياضية">Athletic activities</h2>
+        <p class="cv-entry-title" data-en="Boxing trainee" data-ar="متدرب ملاكمة">Boxing trainee</p>
+        <ul>
+          <li data-en="Training consistently and building physical fitness." data-ar="أواظب على التدريب وأعمل على تطوير لياقتي البدنية.">Training consistently and building physical fitness.</li>
+          <li data-en="Developing discipline, focus, and mental resilience." data-ar="أطور الانضباط والتركيز والمرونة الذهنية.">Developing discipline, focus, and mental resilience.</li>
+          <li data-en="Aspiring to compete professionally and become a world champion." data-ar="أطمح للاحتراف والمنافسة على لقب بطل العالم.">Aspiring to compete professionally and become a world champion.</li>
+        </ul>
+      </section>
+      <section class="cv-section">
+        <h2 data-en="Digital & language development" data-ar="التطوير الرقمي واللغوي">Digital & language development</h2>
+        <ul>
+          <li data-en="Learning Microsoft Word, Excel, and PowerPoint." data-ar="أتعلم Microsoft Word وExcel وPowerPoint.">Learning Microsoft Word, Excel, and PowerPoint.</li>
+          <li data-en="Improving English communication skills." data-ar="أعمل على تطوير مهارات التواصل باللغة الإنجليزية.">Improving English communication skills.</li>
+          <li data-en="Arabic — Native · English — Currently learning" data-ar="العربية — اللغة الأم · الإنجليزية — قيد التعلم">Arabic — Native · English — Currently learning</li>
+        </ul>
+      </section>
+      <section class="cv-section">
+        <h2 data-en="Core strengths" data-ar="المهارات الشخصية">Core strengths</h2>
+        <div class="cv-tags"><span data-en="Self-discipline" data-ar="الانضباط الذاتي">Self-discipline</span><span data-en="Perseverance" data-ar="المثابرة">Perseverance</span><span data-en="Adaptability" data-ar="التكيف">Adaptability</span><span data-en="Time management" data-ar="إدارة الوقت">Time management</span><span data-en="Goal setting" data-ar="تحديد الأهداف">Goal setting</span><span data-en="Problem-solving" data-ar="حل المشكلات">Problem-solving</span><span data-en="Willingness to learn" data-ar="الرغبة في التعلم">Willingness to learn</span></div>
+      </section>
+    </div>
+    <section class="cv-section">
+      <h2 data-en="Career objective" data-ar="الهدف المهني">Career objective</h2>
+      <p data-en="Build a strong foundation in Animal Production, gain hands-on experience in poultry and livestock management, and develop the technical and business skills to establish a successful agricultural enterprise. Pursue international opportunities and excellence in competitive boxing." data-ar="بناء أساس قوي في الإنتاج الحيواني، واكتساب خبرة عملية في إدارة الدواجن والثروة الحيوانية، وتطوير المهارات الفنية والتجارية لتأسيس مشروع زراعي ناجح، مع السعي إلى فرص دولية والتميز في الملاكمة التنافسية.">Build a strong foundation in Animal Production, gain hands-on experience in poultry and livestock management, and develop the technical and business skills to establish a successful agricultural enterprise. Pursue international opportunities and excellence in competitive boxing.</p>
+    </section>
+  </main>
+  <script>
+    const html = document.documentElement;
+    const toggle = document.querySelector("#cv-language");
+    const savedLanguage = localStorage.getItem("bilal-language") || "en";
+    const savedTheme = localStorage.getItem("bilal-theme") || "dark";
+    html.dataset.theme = savedTheme;
+
+    function updateLanguage(language) {
+      const arabic = language === "ar";
+      html.lang = language;
+      html.dir = arabic ? "rtl" : "ltr";
+      document.querySelectorAll("[data-en][data-ar]").forEach((element) => {
+        element.innerHTML = arabic ? element.dataset.ar : element.dataset.en;
+      });
+      toggle.textContent = arabic ? "EN" : "عربي";
+      toggle.setAttribute("aria-label", arabic ? "Switch to English" : "التبديل إلى العربية");
+      document.querySelector("#cv-print").setAttribute("aria-label", arabic ? "تنزيل السيرة الذاتية أو حفظها بصيغة PDF" : "Download CV or save as PDF");
+    }
+
+    toggle.addEventListener("click", () => updateLanguage(html.lang === "en" ? "ar" : "en"));
+    document.querySelector("#cv-print").addEventListener("click", () => window.print());
+    updateLanguage(savedLanguage);
+  </script>
+</body>
+</html>
