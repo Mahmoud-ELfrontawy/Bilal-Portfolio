@@ -34,21 +34,55 @@ themeButton.addEventListener("click", () => setTheme(root.dataset.theme === "lig
 setLanguage(localStorage.getItem("bilal-language") === "ar" ? "ar" : "en");
 setTheme(localStorage.getItem("bilal-theme") === "light" ? "light" : "dark");
 
-if (!reducedMotion && window.gsap && window.ScrollTrigger) {
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.from(".hero-copy > *, .hero-visual", {
-    y: 28,
-    duration: 0.85,
-    stagger: 0.1,
-    ease: "power3.out",
-    delay: 0.12
-  });
-  gsap.utils.toArray(".story-grid > *, .manifesto-image, .manifesto-copy, .discipline-card, .contact-content > *").forEach((element) => {
-    gsap.from(element, {
-      y: 32,
-      duration: 0.75,
-      ease: "power2.out",
-      scrollTrigger: { trigger: element, start: "top 88%", once: true }
+/* ── Scroll-triggered section animations ── */
+if (!reducedMotion) {
+  const animClasses = [
+    ".anim-fade-up",
+    ".anim-fade-left",
+    ".anim-fade-right",
+    ".anim-scale-in",
+    ".anim-flip-up",
+    ".anim-stagger-child",
+  ];
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -48px 0px" }
+  );
+
+  document.querySelectorAll(animClasses.join(", ")).forEach((el) => observer.observe(el));
+
+  /* ── Hero entrance (immediate, no scroll needed) ── */
+  window.addEventListener("DOMContentLoaded", () => {
+    const heroEls = document.querySelectorAll(".hero-copy > *, .hero-visual");
+    heroEls.forEach((el, i) => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(28px)";
+      el.style.transition = `opacity 0.85s cubic-bezier(.22,.9,.36,1) ${i * 0.12}s, transform 0.85s cubic-bezier(.22,.9,.36,1) ${i * 0.12}s`;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+        });
+      });
     });
   });
+
+  /* ── Parallax on hero photo ── */
+  const heroPhoto = document.querySelector(".hero-photo");
+  if (heroPhoto) {
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      if (scrollY < window.innerHeight * 1.5) {
+        heroPhoto.style.transform = `translateY(${scrollY * 0.08}px)`;
+      }
+    }, { passive: true });
+  }
 }
